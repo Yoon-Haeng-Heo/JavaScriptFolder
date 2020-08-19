@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Website</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <img id="logo" src="images/logo.png" width="165" height="58">
+ 
+  <div id="menu">
+    <a id = "Home" >Home</a>
+    <a id = "Seoul" >Seoul</a>
+    <a id = "Tokyo" >Tokyo</a>
+    <a id = "Paris" >Paris</a>
+  </div>
+
+  <img id="photo" src="images/home.png" width="90%">
+   <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+  <script>
+    /*$('#Home').on('click',clickHome);
+    $('#Seoul').on('click',clickSeoul);
+    $('#Tokyo').on('click',clickTokyo);
+    $('#Paris').on('click',clickParis);*/
+    $('#menu a').on('click',eventHandle);
+
+    $(document).on('keydown',PressKey);
+
+    function eventHandle(event){
+      if(event.type =='click'){
+        var targetId = event.currentTarget.id;
+        $('#photo').hide();
+        $('#photo').attr('src','images/'+targetId+'.png');
+        $('#photo').fadeIn(1000);
+        $('#menu a').css('fontWeight','normal');
+        $('#'+targetId).css('fontWeight','bold');
+
+      }
+      else if(event.type == 'keydown'){
+
+      }
+      
+    }
+
+    function PressKey(event){
+      if(event.key ==='1'){
+        clickHome();
+      }
+      else if(event.key === '2'){
+        clickSeoul();
+      }
+      else if(event.key === '3'){
+        clickTokyo();
+      }
+      else if(event.key ==='4'){
+        clickParis();
+      }
+    }
+    function clickHome() {
+      $('#photo').attr('src','images/home.png');
+      $('#Home').css('fontWeight','normal');
+      $('#Seoul').css('fontWeight','normal');
+      $('#Tokyo').css('fontWeight','normal');
+      $('#Paris').css('fontWeight','normal');
+      $('#Home').css('fontWeight','bold');
+      
+    }
+
+    function clickSeoul() {
+      document.getElementById('photo').src = 'images/seoul.png';
+      document.getElementById("Home").style.fontWeight = 'normal';
+      document.getElementById("Seoul").style.fontWeight = 'normal';
+      document.getElementById("Tokyo").style.fontWeight = 'normal';
+      document.getElementById("Paris").style.fontWeight = 'normal';
+      document.getElementById("Seoul").style.fontWeight = 'bold';
+    }
+
+    function clickTokyo() {
+      document.getElementById('photo').src = 'images/tokyo.png';
+      document.getElementById("Home").style.fontWeight = 'normal';
+      document.getElementById("Seoul").style.fontWeight = 'normal';
+      document.getElementById("Tokyo").style.fontWeight = 'normal';
+      document.getElementById("Paris").style.fontWeight = 'normal';
+      document.getElementById("Tokyo").style.fontWeight = 'bold';
+    }
+    
+    function clickParis() {
+      document.getElementById('photo').src = 'images/paris.png';
+      document.getElementById("Home").style.fontWeight = 'normal';
+      document.getElementById("Seoul").style.fontWeight = 'normal';
+      document.getElementById("Tokyo").style.fontWeight = 'normal';
+      document.getElementById("Paris").style.fontWeight = 'normal';
+      document.getElementById("Paris").style.fontWeight = 'bold';
+    }
+  </script>
+</body>
+</html>
